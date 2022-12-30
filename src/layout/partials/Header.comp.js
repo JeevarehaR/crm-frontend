@@ -13,12 +13,13 @@ export const Header = () => {
           style={{
             borderRadius: "50%",
             objectFit: "cover",
+            marginLeft: "16px",
           }}
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
+        <Nav className="nav mx-auto">
           <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           <Nav.Link href="/tickets">Tickets</Nav.Link>
           <Nav.Link href="/logout">Logout</Nav.Link>

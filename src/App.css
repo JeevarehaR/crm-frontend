@@ -5,8 +5,15 @@
 }
 
 header{
-    grid-area:header;
+    grid-area:header; 
+    justify-content: space-evenly;   
 }
+
+header .nav{
+    justify-content: flex-end;
+    width: 90%;
+}
+
 
 main{
     grid-area: main;
@@ -20,3 +27,6 @@ footer{
     color: white;
 }
 
+.search-col{
+    text-align: right;
+}
