@@ -27,6 +27,6 @@ footer{
     color: white;
 }
 
-.search-col{
+.search-col, .close-ticket{
     text-align: right;
 }
