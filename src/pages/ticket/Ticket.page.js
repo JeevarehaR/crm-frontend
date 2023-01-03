@@ -4,10 +4,13 @@ import { PageBreadcrumb } from "../../components/breadcrumb/Breadcrumb.comp";
 import tickets from "../../assets/data/dummy-tickets.json";
 import { MessageHistory } from "../../components/message-history/MessageHistory.comp";
 import { UpdateTicket } from "../../components/update-ticket/UpdateTicket.comp";
+import { useParams } from "react-router-dom";
 
-const ticket = tickets[0];
+// const ticket = tickets[0];
 export const Ticket = () => {
+  const { tId } = useParams();
   const [message, setMessage] = useState("");
+  const [ticket, setTicket] = useState("");
 
   const handleOnChange = (e) => {
     setMessage(e.target.value);
@@ -17,7 +20,14 @@ export const Ticket = () => {
     alert("Form Submitted");
   };
 
-  useEffect(() => {}, [message]);
+  useEffect(() => {
+    for (let i = 0; i < tickets.length; i++) {
+      if (tickets[i].id === tId) {
+        setTicket(tickets[i]);
+        continue;
+      }
+    }
+  }, [message, tId]);
 
   return (
     <Container>
@@ -37,10 +47,8 @@ export const Ticket = () => {
         </Col>
       </Row>
       <hr />
-      <Row>
-        <Col className="mt-4">
-          <MessageHistory msg={ticket.history} />
-        </Col>
+      <Row className="mt-4">
+        <Col>{ticket.history && <MessageHistory msg={ticket.history} />}</Col>
       </Row>
       <Row className="mt-4">
         <Col>
